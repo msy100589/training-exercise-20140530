@@ -1,7 +1,6 @@
 package com.catapult.training.exercise.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,22 +25,7 @@ public class TradeLaneServlet extends HttpServlet
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         resp.setContentType("application/json");
-        PrintWriter out = new PrintWriter(resp.getWriter());
-
-        out.write("[");
-        for (int i = 0; i < list.size(); ++i) {
-            if (i > 0) {
-                out.write(", ");
-            }
-
-            Map data = list.get(i);
-            out.write("{");
-            out.printf("\"name\" : \"%s\", ", data.get("name"));
-            out.printf("\"originTradeName\" : \"%s\", ", data.get("originTradeName"));
-            out.printf("\"destTradeName\" : \"%s\"", data.get("destTradeName"));
-            out.write("}");
-        }
-        out.write("]");
+        ResponseUtil.writeToJson(list, resp.getWriter());
     }
 
     @Override
