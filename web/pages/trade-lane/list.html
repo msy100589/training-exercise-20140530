@@ -1,0 +1,66 @@
+<div id="trade-lane">
+    <div class="items panel panel-default">
+        <div class="panel-heading">Trade Lanes</div>
+        <div class="panel-body">
+            <button class="btn-add btn btn-primary">
+                <i class="glyphicon glyphicon-plus"></i>
+                Add
+            </button>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                    </tr>
+                </thead>
+                <tbody class="list"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="form panel panel-default" hidden>
+        <div class="panel-heading">New Trade Lane</div>
+        <div class="panel-body">
+            <form class="form col-md-5" role="form">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Origin Trade</label>
+                    <div class="input-group">
+                        <input type="text" name="originTradeName" readonly class="form-control"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-search-origin">
+                                <span class="glyphicon glyphicon-search"></span>
+                                Search
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Destination Trade</label>
+                    <div class="input-group">
+                        <input type="text" name="destTradeName" readonly class="form-control"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-search-dest">
+                                <span class="glyphicon glyphicon-search"></span>
+                                Search
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn-save btn btn-primary" type="button">Save</button>
+                    <button class="btn-cancel btn" type="button">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="resources/js/trade-lane/list.js"></script>
+    <script src="resources/js/trade-lane/form.js"></script>
+    <script src="resources/js/trade/lookup.js"></script>
+</div>
