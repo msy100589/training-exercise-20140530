@@ -1,7 +1,6 @@
 package com.catapult.training.exercise.servlet;
 
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,31 +12,29 @@ import java.util.Map;
 public class ResponseUtil
 {
 
-    public static void writeToJson(List<Map> dataList, Writer writer)
+    public static void writeToJson(List<Map> dataList, PrintWriter writer)
     {
-        PrintWriter out = new PrintWriter(writer);
-
-        out.write("[");
+        writer.write("[");
         for (int i = 0; i < dataList.size(); ++i) {
             if (i > 0) {
-                out.write(",");
+                writer.write(",");
             }
 
             Map data = dataList.get(i);
             List keys = new ArrayList(data.keySet());
 
-            out.write("{");
+            writer.write("{");
             for (int kIdx = 0; kIdx < keys.size(); ++kIdx) {
                 if (kIdx > 0) {
-                    out.write(",");
+                    writer.write(",");
                 }
 
                 Object key = keys.get(kIdx);
-                out.printf("\"%s\":\"%s\"", escape(key), escape(data.get(key)));
+                writer.printf("\"%s\":\"%s\"", escape(key), escape(data.get(key)));
             }
-            out.write("}");
+            writer.write("}");
         }
-        out.write("]");
+        writer.write("]");
     }
 
     private static String escape(Object value)
