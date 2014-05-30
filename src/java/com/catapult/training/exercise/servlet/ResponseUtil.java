@@ -33,11 +33,18 @@ public class ResponseUtil
                 }
 
                 Object key = keys.get(kIdx);
-                out.printf("\"%s\":\"%s\"", key, data.get(key));
+                out.printf("\"%s\":\"%s\"", escape(key), escape(data.get(key)));
             }
             out.write("}");
         }
         out.write("]");
+    }
+
+    private static String escape(Object value)
+    {
+        if (value == null) return null;
+
+        return value.toString().replaceAll("\"", "\\\\\"");
     }
 
 }
